@@ -20,4 +20,21 @@ public class EmployeeDAO {
 	public void addEmployee(Employee emp) {
 		list.getEmployeeList().add(emp);
 	}
+	public Employee findEmployee(int empid) {
+		for(Employee e:list.getEmployeeList()) {
+			if(e.getEmpId()==empid)
+				return e;
+		}
+		return new Employee();
+	}
+	public void updateEmployee(Employee obj, int empid) {
+		int index =0;
+		for(int i=0; i<list.getEmployeeList().size();i++) {
+			if(list.getEmployeeList().get(i).getEmpId() == empid){
+				index = i;
+				break;
+			}
+		}
+		list.getEmployeeList().set(index, obj);
+	}
 }
